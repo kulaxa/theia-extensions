@@ -47,7 +47,7 @@ export class WidgetWidget extends ReactWidget {
 
 
      render(): React.ReactElement {
-        let file:  string = "./config/config.yaml";
+        let file:  string = "/app/config/config.yaml";
         this.read_config_ports(file);
 
         return <div id='widget-container'>
@@ -78,7 +78,7 @@ export class WidgetWidget extends ReactWidget {
             console.log(result);
             env_host = result;
         });
-        //let this_current = this;
+        let this_current = this;
         this.fileService.read(path).then(function(result){
             let file_content = result.value.toString();
             let yaml_object = parse(file_content);
@@ -90,33 +90,36 @@ export class WidgetWidget extends ReactWidget {
                     if (value.port === undefined){
                         continue;
                     }
-                    // if(this_current.backendService.checkPort(value.port)){
-                    //     continue;
-                    // }
-                    console.log("Reading port for service: "+key);
-                    const newContent = document.createTextNode(key + ": \n");
-                    const link = document.createElement("a");
-                    link.text = value.port+"."+env_host;
-                    link.setAttribute("href","http://"+ link.text);
-                    link.setAttribute("target", "blank");
-                    const subPortDiv = document.createElement("div");
+                    this_current.backendService.checkPort(value.port).then((result:boolean) =>{
+                        console.log("Reading port for service: "+key+ " and port is : "+ result);
+                        if(result){
+                            const newContent = document.createTextNode(key + ": \n");
+                            const link = document.createElement("a");
+                            link.text = value.port+"."+env_host;
+                            link.setAttribute("href","http://"+ link.text);
+                            link.setAttribute("target", "blank");
+                            const subPortDiv = document.createElement("div");
 
-                    subPortDiv.id = "port-container";
-                    subPortDiv.appendChild(newContent);
-                    subPortDiv.appendChild(link);
-                    portDiv.appendChild(subPortDiv);
-                }
-            }
-            let div = document.getElementById("info-container");
-            if(div != null) {
-                if (div.childNodes.length == 0) {
-                    div.appendChild(portDiv);
-                } else {
+                            subPortDiv.id = "port-container";
+                            subPortDiv.appendChild(newContent);
+                            subPortDiv.appendChild(link);
+                            portDiv.appendChild(subPortDiv);
+                        }
 
-                    for (let i = 0; i < div.childNodes.length; i++) {
-                        div.removeChild(div.childNodes.item(i));
-                    }
-                    div.appendChild(portDiv);
+                        let div = document.getElementById("info-container");
+                        if(div != null) {
+                            if (div.childNodes.length == 0) {
+                                div.appendChild(portDiv);
+                            } else {
+
+                                for (let i = 0; i < div.childNodes.length; i++) {
+                                    div.removeChild(div.childNodes.item(i));
+                                }
+                                div.appendChild(portDiv);
+                            }
+                        }
+                    })
+
                 }
             }
 

@@ -15,8 +15,7 @@
     "@theia/terminal": "latest",
     "@theia/workspace": "latest",
     "widget": "0.0.0",
-    "backend": "0.0.0",
-    "hello-world": "0.0.0"
+    "backend": "0.0.0"
   },
   "devDependencies": {
     "@theia/cli": "latest"

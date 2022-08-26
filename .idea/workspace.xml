@@ -6,12 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="ef4f165a-cd1d-427c-810d-dff3df7f0450" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/browser/backend-contribution.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/browser/backend-contribution.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/browser/backend-frontend-module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/browser/backend-frontend-module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/common/protocol.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/common/protocol.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/node/backend-backend-module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/node/backend-backend-module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/node/hello-backend-with-client-service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/node/hello-backend-with-client-service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/browser-app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/browser-app/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/widget/src/browser/widget-widget.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/widget/src/browser/widget-widget.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
@@ -41,18 +37,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/home/mario/mindsmiths/theia-extensions",
-    "nodejs_package_manager_path": "yarn",
-    "settings.editor.selected.configurable": "preferences.keymap",
-    "ts.external.directory.path": "/home/mario/mindsmiths/theia-extensions/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/mario/mindsmiths/theia-extensions&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/home/mario/mindsmiths/theia-extensions/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/backend/src/browser" />

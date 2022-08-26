@@ -12,6 +12,6 @@
     "lerna": "2.4.0"
   },
   "workspaces": [
-    "hello-world","widget","backend", "browser-app"
+    "widget","backend", "browser-app"
   ]
 }
