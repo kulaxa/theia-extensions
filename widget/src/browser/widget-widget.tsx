@@ -47,7 +47,7 @@ export class WidgetWidget extends ReactWidget {
 
 
      render(): React.ReactElement {
-        let file:  string = "/tmp/beon/config/local.config.yaml";
+        let file:  string = "./config/config.yaml";
         this.read_config_ports(file);
 
         return <div id='widget-container'>
@@ -71,7 +71,7 @@ export class WidgetWidget extends ReactWidget {
             this.messageService.error("can't read file because it doesn't exists");
             return
         } else {
-            console.log("Reading file");
+            console.log("Reading file:" + path.toString());
         }
         let env_host = "";
         this.backendService.sayHelloTo("ENV_URL").then((result: any) =>{
