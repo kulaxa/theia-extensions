@@ -2,7 +2,6 @@ export const CustomBackendService = Symbol('CustomBackendService');
 export const CUSTOM_BACKEND_PATH = '/services/helloBackend';
 
 export interface CustomBackendService {
-    getEnvVariable(name: string): Promise<string>
     checkIfPortOccupied(port: string): Promise<boolean>
 }
 export const BackendClient = Symbol('BackendClient');

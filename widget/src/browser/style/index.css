@@ -14,3 +14,8 @@
 #port-container{
     margin-top: 30px;
 }
+
+.my-widget-tab-icon {
+    -webkit-mask: url('./icons/globe.svg');
+    mask: url('./icons/globe.svg');
+}

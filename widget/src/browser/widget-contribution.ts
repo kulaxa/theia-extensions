@@ -1,13 +1,19 @@
-import { injectable } from '@theia/core/shared/inversify';
-import { MenuModelRegistry } from '@theia/core';
-import { WidgetWidget } from './widget-widget';
-import { AbstractViewContribution } from '@theia/core/lib/browser';
+import {inject, injectable} from '@theia/core/shared/inversify';
+import {CommandService, MenuModelRegistry} from '@theia/core';
+import { PortsWidget } from './ports-widget';
+import {
+    AbstractViewContribution,
+    FrontendApplication,
+    FrontendApplicationContribution,
+    WidgetManager
+} from '@theia/core/lib/browser';
 import { Command, CommandRegistry } from '@theia/core/lib/common/command';
+import {FrontendApplicationStateService} from "@theia/core/lib/browser/frontend-application-state";
 
 export const WidgetCommand: Command = { id: 'widget:command' };
 
 @injectable()
-export class WidgetContribution extends AbstractViewContribution<WidgetWidget> {
+export class WidgetContribution extends AbstractViewContribution<PortsWidget> implements FrontendApplicationContribution{
 
     /**
      * `AbstractViewContribution` handles the creation and registering
@@ -19,8 +25,8 @@ export class WidgetContribution extends AbstractViewContribution<WidgetWidget> {
      */
     constructor() {
         super({
-            widgetId: WidgetWidget.ID,
-            widgetName: WidgetWidget.LABEL,
+            widgetId: PortsWidget.ID,
+            widgetName: PortsWidget.LABEL,
             defaultWidgetOptions: { area: 'left' },
             toggleCommandId: WidgetCommand.id
         });
@@ -30,20 +36,47 @@ export class WidgetContribution extends AbstractViewContribution<WidgetWidget> {
      * Example command registration to open the widget from the menu, and quick-open.
      * For a simpler use case, it is possible to simply call:
      ```ts
-        super.registerCommands(commands)
+     super.registerCommands(commands)
      ```
      *
-     * For more flexibility, we can pass `OpenViewArguments` which define 
+     * For more flexibility, we can pass `OpenViewArguments` which define
      * options on how to handle opening the widget:
-     * 
+     *
      ```ts
-        toggle?: boolean
-        activate?: boolean;
-        reveal?: boolean;
+     toggle?: boolean
+     activate?: boolean;
+     reveal?: boolean;
      ```
      *
-     * @param commands
+     * @param WidgetContribution
      */
+
+
+    @inject(FrontendApplicationStateService)
+    protected readonly stateService: FrontendApplicationStateService;
+
+    @inject(CommandService)
+    protected readonly commandService: CommandService
+
+    @inject(WidgetManager)
+    protected readonly widgetManger: WidgetManager
+
+    async onStart(app: FrontendApplication): Promise<void> {
+        this.stateService.reachedState('ready').then(
+
+            () => {
+                this.widgetManger.getWidget("files").then(navigator =>{
+                    if(!navigator){
+                        console.log("navigator doesn't exists, runnig command");
+                        this.commandService.executeCommand("fileNavigator:toggle")
+                        this.openView({ reveal: false })
+                    }
+                })
+
+
+            }
+        );
+    }
     registerCommands(commands: CommandRegistry): void {
         commands.registerCommand(WidgetCommand, {
             execute: () => {super.openView({ activate: false, reveal: true })
@@ -69,3 +102,4 @@ export class WidgetContribution extends AbstractViewContribution<WidgetWidget> {
         super.registerMenus(menus);
     }
 }
+
