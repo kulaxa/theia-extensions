@@ -10,7 +10,7 @@ import URI from "@theia/core/lib/common/uri";
 import { parse } from 'yaml'
 
 // @ts-ignore
-import { HelloBackendService } from "backend/lib/common/protocol";
+import { CustomBackendService } from "backend/lib/common/protocol";
 
 
 
@@ -27,8 +27,8 @@ export class WidgetWidget extends ReactWidget {
     protected readonly fileService!: FileService;
 
 
-    @inject(HelloBackendService)
-    protected readonly backendService!: HelloBackendService;
+    @inject(CustomBackendService)
+    protected readonly backendService!: CustomBackendService;
 
 
     @inject(OpenerService)
@@ -74,7 +74,7 @@ export class WidgetWidget extends ReactWidget {
             console.log("Reading file:" + path.toString());
         }
         let env_host = "";
-        this.backendService.sayHelloTo("ENV_URL").then((result: any) =>{
+        this.backendService.getEnvVariable("ENV_URL").then((result: any) =>{
             console.log(result);
             env_host = result;
         });
@@ -90,7 +90,7 @@ export class WidgetWidget extends ReactWidget {
                     if (value.port === undefined){
                         continue;
                     }
-                    this_current.backendService.checkPort(value.port).then((result:boolean) =>{
+                    this_current.backendService.checkIfPortOccupied(value.port).then((result:boolean) =>{
                         console.log("Reading port for service: "+key+ " and port is : "+ result);
                         if(result){
                             const newContent = document.createTextNode(key + ": \n");

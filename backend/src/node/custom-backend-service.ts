@@ -1,20 +1,20 @@
 import { injectable } from '@theia/core/shared/inversify';
-import { HelloBackendService } from '../common/protocol';
+import { CustomBackendService } from '../common/protocol';
 
 @injectable()
-export class HelloBackendServiceImpl implements HelloBackendService {
-    sayHelloTo(name: string): Promise<string> {
-            let vars = process.env;
-            if (vars[name] != undefined){
+export class CustomBackendServiceImpl implements CustomBackendService {
+    getEnvVariable(name: string): Promise<string> {
+            let env_vars = process.env;
+            if (env_vars[name] != undefined){
                 // @ts-ignore
-                return new Promise<string>(resolve => resolve(vars[name]));
+                return new Promise<string>(resolve => resolve(env_vars[name]));
             }
             throw new Error("No env variable: " + name);
     }
-    checkPort(port: string): Promise<boolean> {
+    checkIfPortOccupied(port: string): Promise<boolean> {
         let tcpPortUsed = require('tcp-port-used');
         let port_int: number;
-        console.log("receivce port"+port);
+
         try{
             port_int = parseInt(port);
             if(port_int < 1 || port_int>65535){

@@ -1,13 +1,13 @@
 import { ConnectionHandler, JsonRpcConnectionHandler } from '@theia/core';
 import { ContainerModule } from '@theia/core/shared/inversify';
-import { HelloBackendServiceImpl } from './hello-backend-service';
-import { HelloBackendService, HELLO_BACKEND_PATH} from '../common/protocol'
+import { CustomBackendServiceImpl } from './custom-backend-service';
+import { CustomBackendService, CUSTOM_BACKEND_PATH} from '../common/protocol'
 
 export default new ContainerModule(bind => {
-    bind(HelloBackendService).to(HelloBackendServiceImpl).inSingletonScope()
+    bind(CustomBackendService).to(CustomBackendServiceImpl).inSingletonScope()
     bind(ConnectionHandler).toDynamicValue(ctx =>
-        new JsonRpcConnectionHandler(HELLO_BACKEND_PATH, () => {
-            return ctx.container.get<HelloBackendService>(HelloBackendService);
+        new JsonRpcConnectionHandler(CUSTOM_BACKEND_PATH, () => {
+            return ctx.container.get<CustomBackendService>(CustomBackendService);
         })
     ).inSingletonScope()
 });
