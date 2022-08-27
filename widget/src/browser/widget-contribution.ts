@@ -62,20 +62,27 @@ export class WidgetContribution extends AbstractViewContribution<PortsWidget> im
     protected readonly widgetManger: WidgetManager
 
     async onStart(app: FrontendApplication): Promise<void> {
+        // open file explorer and attach ports widget
         this.stateService.reachedState('ready').then(
-
             () => {
-                this.widgetManger.getWidget("files").then(navigator =>{
-                    if(!navigator){
+                this.widgetManger.getWidget("files").then((navigator) =>{
+                    if(navigator == undefined) {
                         console.log("navigator doesn't exists, runnig command");
-                        this.commandService.executeCommand("fileNavigator:toggle")
-                        this.openView({ reveal: false })
+                        this.commandService.executeCommand("fileNavigator:toggle").then(() => {
+                            this.openView({reveal: false})
+
+                        })
                     }
                 })
 
 
+
             }
-        );
+                )
+
+
+
+
     }
     registerCommands(commands: CommandRegistry): void {
         commands.registerCommand(WidgetCommand, {
