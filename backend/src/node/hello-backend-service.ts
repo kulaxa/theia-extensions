@@ -11,8 +11,6 @@ export class HelloBackendServiceImpl implements HelloBackendService {
             }
             throw new Error("No env variable: " + name);
     }
-
-
     checkPort(port: string): Promise<boolean> {
         let tcpPortUsed = require('tcp-port-used');
         let port_int: number;

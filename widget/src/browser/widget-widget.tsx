@@ -47,7 +47,7 @@ export class WidgetWidget extends ReactWidget {
 
 
      render(): React.ReactElement {
-        let file:  string = "/app/config/config.yaml";
+        let file:  string = "/app/config/local.config.yaml";
         this.read_config_ports(file);
 
         return <div id='widget-container'>

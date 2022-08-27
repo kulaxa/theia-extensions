@@ -6,10 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="ef4f165a-cd1d-427c-810d-dff3df7f0450" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/browser-app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/browser-app/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/browser/backend-contribution.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/browser/backend-frontend-module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/common/protocol.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/common/protocol.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/node/backend-backend-module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/node/backend-backend-module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/node/hello-backend-service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/node/hello-backend-service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/node/hello-backend-with-client-service.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/widget/src/browser/widget-widget.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/widget/src/browser/widget-widget.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,6 +100,8 @@
       <workItem from="1661496847696" duration="5966000" />
       <workItem from="1661503503759" duration="467000" />
       <workItem from="1661506631771" duration="2141000" />
+      <workItem from="1661519910129" duration="2580000" />
+      <workItem from="1661589782384" duration="1288000" />
     </task>
     <servers />
   </component>
