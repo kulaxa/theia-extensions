@@ -12,6 +12,6 @@
     "lerna": "2.4.0"
   },
   "workspaces": [
-    "widget","backend", "browser-app"
+    "reset-env","widget","backend", "browser-app"
   ]
 }

@@ -5,7 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ef4f165a-cd1d-427c-810d-dff3df7f0450" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/compile-extensions.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reset-env/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reset-env/tsconfig.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/common/protocol.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/common/protocol.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/node/custom-backend-service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/node/custom-backend-service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/browser-app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/browser-app/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/backend-v0.0.0.tgz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/widget-v0.0.0.tgz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/widget/src/browser/ports-widget.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/widget/src/browser/ports-widget.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/widget/src/browser/widget-contribution.ts" beforeDir="false" afterPath="$PROJECT_DIR$/widget/src/browser/widget-contribution.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,6 +25,18 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/backend/src/common/protocol.ts" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/backend/src/node/custom-backend-service.ts" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/browser-app/package.json" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/node_modules/@theia/core/lib/common/message-rpc/channel.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/package.json" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/reset-env/package.json" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/reset-env/src/browser/reset-env-contribution.ts" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/reset-env/src/browser/reset-env-frontend-module.ts" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/widget/package.json" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/widget/src/browser/ports-widget.tsx" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MacroExpansionManager">
     <option name="directoryName" value="791y5sag" />
@@ -33,26 +56,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/mario/mindsmiths/theia-extensions&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/home/mario/mindsmiths/theia-extensions/node_modules/typescript/lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/home/mario/mindsmiths/kaliopa",
+    "nodejs_package_manager_path": "yarn",
+    "settings.editor.selected.configurable": "preferences.keymap",
+    "ts.external.directory.path": "/home/mario/mindsmiths/theia-extensions/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/backend/src/browser" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/backend/src/node" />
       <recent name="$PROJECT_DIR$/working-terminal-code" />
-      <recent name="$PROJECT_DIR$" />
     </key>
   </component>
   <component name="RunManager">
@@ -95,6 +118,11 @@
       <workItem from="1661506631771" duration="2141000" />
       <workItem from="1661519910129" duration="2580000" />
       <workItem from="1661589782384" duration="10657000" />
+      <workItem from="1661754773791" duration="15051000" />
+      <workItem from="1661840796207" duration="4000" />
+      <workItem from="1661845552705" duration="1511000" />
+      <workItem from="1661931408496" duration="6590000" />
+      <workItem from="1661950526869" duration="7991000" />
     </task>
     <servers />
   </component>

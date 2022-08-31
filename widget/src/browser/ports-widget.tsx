@@ -67,8 +67,7 @@ export class PortsWidget extends ReactWidget {
 
 
      render(): React.ReactElement {
-        console.log("read env from env using envvariableserver:" +this.env_url);
-        console.log("reading local.config.yaml: "+this.conf_file_content);
+        console.log("Rendering ports widget");
         this.read_config_ports();
 
         return <div id='widget-container'>
@@ -78,63 +77,65 @@ export class PortsWidget extends ReactWidget {
 
             </div>
             <button id='displayMessageButton' className='theia-button secondary' title='Display Message' onClick={_a => this.open_config_file(PortsWidget.PATH_TO_CONFIG_FILE)}>Open config</button>
-            <button id='updateButton' className='theia-button secondary' title='Update' onClick={_a => this.read_config_ports()}>Update</button>
+            <button id='updateButton' className='theia-button secondary' title='Update' onClick={_a => this.init()}>Update</button>
 
         </div>
     }
 
 
     protected read_config_ports(): void {
-
-
         let yaml_object = parse(this.conf_file_content);
 
         const portDiv = document.createElement("div");
-        if (yaml_object) {
-            for (let [key, value] of Object.entries<any>(yaml_object.services)) {
-                if (value.port === undefined) {
-                    continue;
-                }
-                this.backendService.checkIfPortOccupied(value.port).then((result: boolean) => {
-                    console.log("Reading port for service: " + key + " and port is : " + result);
-                    if (result) {
-                        const newContent = document.createTextNode(key + ": \n");
-                        const link = document.createElement("a");
-                        link.text = value.port + "." + this.env_url;
-                        link.setAttribute("href", "http://" + link.text);
-                        link.setAttribute("target", "blank");
-                        const subPortDiv = document.createElement("div");
+        if (yaml_object != undefined) {
+            console.log("trying to read ports from config file");
+            if(yaml_object.services != undefined) {
+                for (let [key, value] of Object.entries<any>(yaml_object.services)) {
 
-                        subPortDiv.id = "port-container";
-                        subPortDiv.appendChild(newContent);
-                        subPortDiv.appendChild(link);
-                        portDiv.appendChild(subPortDiv);
+                    if (value.port === undefined) {
+                        continue;
                     }
+                    console.log("read " + key + ":" + value.port + " from config file");
+                    this.backendService.checkIfPortOccupied(value.port).then((result: boolean) => {
+                        console.log("Reading port for service: " + key + " and port is : " + result);
+                        if (result) {
+                            const newContent = document.createTextNode(key + ": \n");
+                            const link = document.createElement("a");
+                            link.text = value.port + "." + this.env_url;
+                            link.setAttribute("href", "http://" + link.text);
+                            link.setAttribute("target", "blank");
+                            const subPortDiv = document.createElement("div");
 
-                    let div = document.getElementById("info-container");
-                    if (div != null) {
-                        if (div.childNodes.length == 0) {
-                            div.appendChild(portDiv);
-                        } else {
-
-                            for (let i = 0; i < div.childNodes.length; i++) {
-                                div.removeChild(div.childNodes.item(i));
-                            }
-                            div.appendChild(portDiv);
+                            subPortDiv.id = "port-container";
+                            subPortDiv.appendChild(newContent);
+                            subPortDiv.appendChild(link);
+                            portDiv.appendChild(subPortDiv);
                         }
-                    }
-                })
+
+                        let div = document.getElementById("info-container");
+                        if (div != null) {
+                            if (div.childNodes.length == 0) {
+                                div.appendChild(portDiv);
+                            } else {
+
+                                for (let i = 0; i < div.childNodes.length; i++) {
+                                    div.removeChild(div.childNodes.item(i));
+                                }
+                                div.appendChild(portDiv);
+                            }
+                        }
+                    })
 
 
+                }
             }
-
 
         }
     }
 
 
     protected open_config_file(file_path: string): void {
-        this.messageService.info('Opening config.yaml');
+        this.messageService.info('Opening: '+file_path);
 
         this.fileOpener.getOpener(new URI(file_path)).then(opener =>{
             opener.open(new URI(file_path));
