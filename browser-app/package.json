@@ -15,7 +15,8 @@
     "@theia/terminal": "latest",
     "@theia/workspace": "latest",
     "backend": "0.0.0",
-    "reset-env": "0.0.0"
+    "reset-env": "0.0.0",
+    "widget": "0.0.0"
   },
   "devDependencies": {
     "@theia/cli": "latest"

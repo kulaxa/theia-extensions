@@ -38,20 +38,18 @@ export class SoftResetEnvCommandContribution implements CommandContribution {
     registerCommands(registry: CommandRegistry): void {
 
         registry.registerCommand(SoftResetEnvCommand, {
-            execute:  () => {
-                new ConfirmDialog({
-                    title: 'Soft Reset Environment',
-                    msg: `Do you really want to reset the environment? Everything except your /app directory will be deleted!`
-                }).open().then(result =>{
-                    if(result){
-                        console.log("Resetting environment");
-                        this.messageService.info("Resetting just environment, not /app")
-                        this.backendService.resetEnvironment(false);
+            execute: async  () => {
+                let result = await new ConfirmDialog({
+                    title: 'Soft Reset',
+                    msg: `Do you really want to reset the environment? Every process will be killed!`
+                }).open()
+                if(result) {
+                    this.messageService.info("Your environment is begin reset. Killing all processes...")
+                    let reset_result = await this.backendService.resetEnvironment(false);
+                    if (!reset_result) {
+                        this.messageService.error("Something went wrong with resetting your environment! Try again.")
                     }
-                    else{
-                        console.log("NONONOOOO"+ result)
-                    }
-                });
+                }
             }
         });
     }
@@ -71,20 +69,23 @@ export class HardResetEnvCommandContribution implements CommandContribution {
     registerCommands(registry: CommandRegistry): void {
 
     registry.registerCommand(HardResetEnvCommand, {
-        execute:  () => {
-            new ConfirmDialog({
-                title: 'Reset Environment',
-                msg: `Do you really want to reset the environment? Everything INCLUDING your /app directory will be deleted!`
-            }).open().then(result =>{
-                if(result){
-                    console.log("Resetting environment");
-                    this.messageService.info("Resetting environment including /app!");
-                    this.backendService.resetEnvironment(true);
+        execute: async  () => {
+            let result = await new ConfirmDialog({
+                title: 'Hard Reset',
+                msg: `Do you really want to HARD reset the environment? Every process and file will be deleted! This cannot be undone!`
+            }).open();
+            if(result) {
+                console.log("Resetting environment");
+                this.messageService.info("You environment is begin reset. Killing all processes and deleting all files...");
+                let reset_result = await this.backendService.resetEnvironment(true)
+                if (!reset_result) {
+                    this.messageService.error("Files from /app can't be deleted! You can delete them manually and try again.");
                 }
-                else{
-                    console.log("Not resetting the environment");
-                }
-            });
+
+            }
+
+
+
         }
     });
 }
@@ -94,7 +95,7 @@ export class HardResetEnvCommandContribution implements CommandContribution {
 export class SoftResetEnvMenuContribution implements MenuContribution {
     private TEST_MENU = [...MAIN_MENU_BAR, 'zzzz'];
     registerMenus(menus: MenuModelRegistry): void {
-        menus.registerSubmenu(this.TEST_MENU, "Reset Environment", );
+        menus.registerSubmenu(this.TEST_MENU, "Dev Environment", );
         menus.registerMenuAction(this.TEST_MENU, {
             commandId: SoftResetEnvCommand.id,
             label: SoftResetEnvCommand.label
@@ -108,7 +109,7 @@ export class SoftResetEnvMenuContribution implements MenuContribution {
 export class HardResetEnvMenuContribution implements MenuContribution {
     private TEST_MENU = [...MAIN_MENU_BAR, 'zzzz'];
     registerMenus(menus: MenuModelRegistry): void {
-        menus.registerSubmenu(this.TEST_MENU, "Reset Environment", );
+        menus.registerSubmenu(this.TEST_MENU, "Dev Environment", );
         menus.registerMenuAction(this.TEST_MENU, {
                 commandId: HardResetEnvCommand.id,
                 label: HardResetEnvCommand.label

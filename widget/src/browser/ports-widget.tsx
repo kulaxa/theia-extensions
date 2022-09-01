@@ -23,7 +23,7 @@ export class PortsWidget extends ReactWidget {
     protected conf_file_content: string;
 
     static readonly PATH_TO_CONFIG_FILE = "/app/config/local.config.yaml"
-
+    static first_init: boolean = true;
     static readonly ID = 'ports:widget';
     static readonly LABEL = 'Ports Widget';
 
@@ -58,10 +58,13 @@ export class PortsWidget extends ReactWidget {
             this.env_url =tmp_env_url.value.toString();
         }
 
-        let tmp_config_file = await this.read_file(PortsWidget.PATH_TO_CONFIG_FILE);
+        let tmp_config_file = await this.read_file(PortsWidget.PATH_TO_CONFIG_FILE, PortsWidget.first_init);
+        PortsWidget.first_init = false;
         if(tmp_config_file != undefined){
             this.conf_file_content = tmp_config_file.value;
         }
+        await console.log("From widget with love: "+this.backendService.get_from_mongo_db({name: "tutorials point"}, "test"))
+
         this.update();}
 
 
@@ -156,11 +159,13 @@ export class PortsWidget extends ReactWidget {
     }
 
 
-    protected async read_file(config_file: string) : Promise<TextFileContent | undefined>{
+    protected async read_file(config_file: string, on_init: boolean) : Promise<TextFileContent | undefined>{
         let path = new URI(config_file);
         if (!(await this.fileService.exists(path))) {
             console.log("Resource does not exist");
-            this.messageService.error("can't read file because it doesn't exists");
+            if(!on_init) {
+                this.messageService.error("Can't read " + config_file + " because it doesn't exist!");
+            }
             return undefined
         } else {
             console.log("Reading file:" + path.toString());
