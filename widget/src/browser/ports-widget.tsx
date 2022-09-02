@@ -63,7 +63,7 @@ export class PortsWidget extends ReactWidget {
         if(tmp_config_file != undefined){
             this.conf_file_content = tmp_config_file.value;
         }
-        await console.log("From widget with love: "+this.backendService.get_from_mongo_db({name: "tutorials point"}, "test"))
+        //await console.log("From widget with love: "+this.backendService.get_from_mongo_db({name: "tutorials point"}, "test"))
 
         this.update();}
 

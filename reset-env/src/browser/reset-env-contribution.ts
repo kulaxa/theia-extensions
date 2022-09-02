@@ -13,12 +13,12 @@ import {ConfirmDialog} from "@theia/core/lib/browser";
 
 export const SoftResetEnvCommand: Command = {
     id: 'SoftRestEnvCommand.command',
-    label: 'Soft Reset Environment'
+    label: 'Soft Reset'
 };
 
 export const HardResetEnvCommand: Command = {
     id: 'HardRestEnvCommand.command',
-    label: 'Hard Reset Environment'
+    label: 'Hard Reset'
 };
 
 
@@ -95,7 +95,7 @@ export class HardResetEnvCommandContribution implements CommandContribution {
 export class SoftResetEnvMenuContribution implements MenuContribution {
     private TEST_MENU = [...MAIN_MENU_BAR, 'zzzz'];
     registerMenus(menus: MenuModelRegistry): void {
-        menus.registerSubmenu(this.TEST_MENU, "Dev Environment", );
+        menus.registerSubmenu(this.TEST_MENU, "Environment", );
         menus.registerMenuAction(this.TEST_MENU, {
             commandId: SoftResetEnvCommand.id,
             label: SoftResetEnvCommand.label
@@ -109,7 +109,7 @@ export class SoftResetEnvMenuContribution implements MenuContribution {
 export class HardResetEnvMenuContribution implements MenuContribution {
     private TEST_MENU = [...MAIN_MENU_BAR, 'zzzz'];
     registerMenus(menus: MenuModelRegistry): void {
-        menus.registerSubmenu(this.TEST_MENU, "Dev Environment", );
+        menus.registerSubmenu(this.TEST_MENU, "Environment", );
         menus.registerMenuAction(this.TEST_MENU, {
                 commandId: HardResetEnvCommand.id,
                 label: HardResetEnvCommand.label
