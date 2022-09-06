@@ -22,8 +22,6 @@ export const HardResetEnvCommand: Command = {
 };
 
 
-
-
 @injectable()
 export class SoftResetEnvCommandContribution implements CommandContribution {
     constructor(
@@ -45,10 +43,7 @@ export class SoftResetEnvCommandContribution implements CommandContribution {
                 }).open()
                 if(result) {
                     this.messageService.info("Your environment is begin reset. Killing all processes...")
-                    let reset_result = await this.backendService.resetEnvironment(false);
-                    if (!reset_result) {
-                        this.messageService.error("Something went wrong with resetting your environment! Try again.")
-                    }
+                    this.backendService.resetEnvironment(false);
                 }
             }
         });
@@ -77,15 +72,8 @@ export class HardResetEnvCommandContribution implements CommandContribution {
             if(result) {
                 console.log("Resetting environment");
                 this.messageService.info("You environment is begin reset. Killing all processes and deleting all files...");
-                let reset_result = await this.backendService.resetEnvironment(true)
-                if (!reset_result) {
-                    this.messageService.error("Files from /app can't be deleted! You can delete them manually and try again.");
-                }
-
+                await this.backendService.resetEnvironment(true)
             }
-
-
-
         }
     });
 }
@@ -93,7 +81,7 @@ export class HardResetEnvCommandContribution implements CommandContribution {
 
 @injectable()
 export class SoftResetEnvMenuContribution implements MenuContribution {
-    private TEST_MENU = [...MAIN_MENU_BAR, 'zzzz'];
+    private TEST_MENU = [...MAIN_MENU_BAR, '7'];
     registerMenus(menus: MenuModelRegistry): void {
         menus.registerSubmenu(this.TEST_MENU, "Environment", );
         menus.registerMenuAction(this.TEST_MENU, {
@@ -105,17 +93,17 @@ export class SoftResetEnvMenuContribution implements MenuContribution {
 
 }
 
-@injectable()
-export class HardResetEnvMenuContribution implements MenuContribution {
-    private TEST_MENU = [...MAIN_MENU_BAR, 'zzzz'];
-    registerMenus(menus: MenuModelRegistry): void {
-        menus.registerSubmenu(this.TEST_MENU, "Environment", );
-        menus.registerMenuAction(this.TEST_MENU, {
-                commandId: HardResetEnvCommand.id,
-                label: HardResetEnvCommand.label
-            }
-        );
-    }
+// @injectable()
+// export class HardResetEnvMenuContribution implements MenuContribution {
+//     private TEST_MENU = [...MAIN_MENU_BAR, '7'];
+//     registerMenus(menus: MenuModelRegistry): void {
+//         menus.registerSubmenu(this.TEST_MENU, "Environment", );
+//         menus.registerMenuAction(this.TEST_MENU, {
+//                 commandId: HardResetEnvCommand.id,
+//                 label: HardResetEnvCommand.label
+//             }
+//         );
+//     }
 
-}
+// }
 

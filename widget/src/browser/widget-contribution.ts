@@ -1,5 +1,5 @@
 import {inject, injectable} from '@theia/core/shared/inversify';
-import {CommandService, MenuModelRegistry} from '@theia/core';
+import {CommandContribution, CommandService, MenuModelRegistry} from '@theia/core';
 import { PortsWidget } from './ports-widget';
 import {
     AbstractViewContribution,
@@ -10,9 +10,14 @@ import {
 import { Command, CommandRegistry } from '@theia/core/lib/common/command';
 import {FrontendApplicationStateService} from "@theia/core/lib/browser/frontend-application-state";
 import URI from "@theia/core/lib/common/uri";
-// import URI from "@theia/core/lib/common/uri";
-
+import {FileDialogService, SaveFileDialogProps} from "@theia/filesystem/lib/browser";
 export const WidgetCommand: Command = { id: 'widget:command' };
+
+export const PortsWidgetCommand: Command = {
+    id: 'SetConfigFile.command',
+    label: 'Set Config File'
+};
+
 
 @injectable()
 export class WidgetContribution extends AbstractViewContribution<PortsWidget> implements FrontendApplicationContribution{
@@ -70,4 +75,25 @@ export class WidgetContribution extends AbstractViewContribution<PortsWidget> im
         super.registerMenus(menus);
     }
 }
+@injectable()
+export class SetConfigFilePortsContribution implements CommandContribution {
+    constructor(@inject(FileDialogService) private readonly dialog: FileDialogService) {
 
+    }
+
+    registerCommands(registry: CommandRegistry): void {
+
+        registry.registerCommand(PortsWidgetCommand, {
+            execute: async () => {
+                let props = new SaveFileDialogProps();
+
+                let path= await this.dialog.showSaveDialog(props );
+                if (path === undefined){
+                    throw new Error();
+                }
+                console.log(path);
+                PortsWidget.PATH_TO_CONFIG_FILE=path.toString()
+            }
+        })
+    }
+}

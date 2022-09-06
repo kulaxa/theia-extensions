@@ -21,7 +21,8 @@ export class CustomBackendServiceImpl implements CustomBackendService {
     }
 
 
-    resetEnvironment(hard_reset: boolean): Promise<boolean> {
+    // @ts-ignore
+    resetEnvironment(hard_reset: boolean): boolean {
         let command_to_execute = "pkill node";
         if (hard_reset) {
             command_to_execute = "rm -rf /app/* && rm -rf /app/.* || [ -z $(ls /app) ]  && cp -r /code/* /app/ && pkill node"
@@ -29,17 +30,19 @@ export class CustomBackendServiceImpl implements CustomBackendService {
         exec(command_to_execute, (error: any, stdout: any, stderr: any) => {
             if (error) {
                 console.log(`error: ${error.message}`);
-                return new Promise<boolean>(resolve => resolve(false))
+                //return new Promise<boolean>(resolve => resolve(false))
+                return false
             }
             if (stderr) {
                 console.log(`stderr: ${stderr}`);
-                return new Promise<boolean>(resolve => resolve(true));
+                //return new Promise<boolean>(resolve => resolve(true));
+                return true
             }
             console.log(`stdout: ${stdout}`);
-            return new Promise<boolean>(resolve => resolve(true));
+            //return new Promise<boolean>(resolve => resolve(true));
+            return true;
 
-        });
-        return new Promise<boolean>(resolve => resolve(false));
+        })
 
     }
 
