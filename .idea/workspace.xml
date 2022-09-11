@@ -6,10 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="ef4f165a-cd1d-427c-810d-dff3df7f0450" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/backend-v0.0.0.tgz" beforeDir="false" afterPath="$PROJECT_DIR$/out/backend-v0.0.0.tgz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/reset-env-v0.0.0.tgz" beforeDir="false" afterPath="$PROJECT_DIR$/out/reset-env-v0.0.0.tgz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/widget-v0.0.0.tgz" beforeDir="false" afterPath="$PROJECT_DIR$/out/widget-v0.0.0.tgz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/widget/src/browser/widget-contribution.ts" beforeDir="false" afterPath="$PROJECT_DIR$/widget/src/browser/widget-contribution.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/widget/src/browser/ports-widget.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/widget/src/browser/ports-widget.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,7 +117,7 @@
       <workItem from="1662368354978" duration="18000" />
       <workItem from="1662446259815" duration="8837000" />
       <workItem from="1662622651272" duration="148000" />
-      <workItem from="1662914341392" duration="1380000" />
+      <workItem from="1662914341392" duration="4601000" />
     </task>
     <servers />
   </component>

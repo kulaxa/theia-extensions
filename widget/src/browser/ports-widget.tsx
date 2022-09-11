@@ -58,11 +58,11 @@ export class PortsWidget extends ReactWidget {
             this.env_url =tmp_env_url.value.toString();
         }
 
-        let tmp_config_file = await this.read_file(PortsWidget.PATH_TO_CONFIG_FILE, PortsWidget.first_init);
-        PortsWidget.first_init = false;
-        if(tmp_config_file != undefined){
-            this.conf_file_content = tmp_config_file.value;
-        }
+        // let tmp_config_file = await this.read_file(PortsWidget.PATH_TO_CONFIG_FILE, PortsWidget.first_init);
+        // PortsWidget.first_init = false;
+        // if(tmp_config_file != undefined){
+        //     this.conf_file_content = tmp_config_file.value;
+        // }
         //await console.log("From widget with love: "+this.backendService.get_from_mongo_db({name: "tutorials point"}, "test"))
 
         this.update();}
@@ -71,7 +71,7 @@ export class PortsWidget extends ReactWidget {
 
      render(): React.ReactElement {
         console.log("Rendering ports widget");
-        this.read_config_ports();
+        this.updateScannedPorts();
 
         return <div id='widget-container'>
             <h2>Services with exposed ports</h2>
@@ -80,7 +80,7 @@ export class PortsWidget extends ReactWidget {
 
             </div>
             <button id='displayMessageButton' className='theia-button secondary' title='Display Message' onClick={_a => this.open_config_file(PortsWidget.PATH_TO_CONFIG_FILE)}>Open config</button>
-            <button id='updateButton' className='theia-button secondary' title='Update' onClick={_a => this.init()}>Update</button>
+            {/*<button id='updateButton' className='theia-button secondary' title='Update' onClick={_a => this.init()}>Update</button>*/}
 
         </div>
     }
@@ -177,6 +177,32 @@ export class PortsWidget extends ReactWidget {
 
     set_path_to_config_file(config_file: string): void{
         PortsWidget.PATH_TO_CONFIG_FILE=config_file;
+    }
+
+    protected async updateScannedPorts(): Promise<void>{
+        while(!this.isAttached){
+            await new Promise(resolve => setTimeout(resolve,3000))
+        }
+        while(this.isAttached){
+            if(this.isVisible) {
+                let tmp_config_file = await this.read_file(PortsWidget.PATH_TO_CONFIG_FILE, PortsWidget.first_init);
+                PortsWidget.first_init = false;
+                if(tmp_config_file != undefined){
+                    this.conf_file_content = tmp_config_file.value;
+                    this.read_config_ports();
+                }
+                else{
+                    await new Promise(resolve => setTimeout(resolve,10000))
+                }
+
+                await new Promise(resolve => setTimeout(resolve,1000))
+
+            }
+            else{
+                await new Promise(resolve => setTimeout(resolve,5000))
+
+            }
+        }
     }
 
 }
