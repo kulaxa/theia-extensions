@@ -6,16 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="ef4f165a-cd1d-427c-810d-dff3df7f0450" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/common/protocol.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/common/protocol.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/node/custom-backend-service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/node/custom-backend-service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/backend-v0.0.0.tgz" beforeDir="false" afterPath="$PROJECT_DIR$/out/backend-v0.0.0.tgz" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/reset-env-v0.0.0.tgz" beforeDir="false" afterPath="$PROJECT_DIR$/out/reset-env-v0.0.0.tgz" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/widget-v0.0.0.tgz" beforeDir="false" afterPath="$PROJECT_DIR$/out/widget-v0.0.0.tgz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reset-env/src/browser/reset-env-contribution.ts" beforeDir="false" afterPath="$PROJECT_DIR$/reset-env/src/browser/reset-env-contribution.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reset-env/src/browser/reset-env-frontend-module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/reset-env/src/browser/reset-env-frontend-module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/widget/src/browser/ports-widget.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/widget/src/browser/ports-widget.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/widget/src/browser/widget-contribution.ts" beforeDir="false" afterPath="$PROJECT_DIR$/widget/src/browser/widget-contribution.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/widget/src/browser/widget-frontend-module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/widget/src/browser/widget-frontend-module.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,18 +48,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/home/mario/mindsmiths/theia-extensions",
-    "nodejs_package_manager_path": "yarn",
-    "settings.editor.selected.configurable": "preferences.keymap",
-    "ts.external.directory.path": "/home/mario/mindsmiths/theia-extensions/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/mario/mindsmiths/theia-extensions&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/home/mario/mindsmiths/theia-extensions/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/backend/src/browser" />
@@ -124,7 +118,9 @@
       <workItem from="1662024553958" duration="17158000" />
       <workItem from="1662100447410" duration="11392000" />
       <workItem from="1662368354978" duration="18000" />
-      <workItem from="1662446259815" duration="1705000" />
+      <workItem from="1662446259815" duration="8837000" />
+      <workItem from="1662622651272" duration="148000" />
+      <workItem from="1662914341392" duration="1380000" />
     </task>
     <servers />
   </component>
